@@ -6,8 +6,13 @@ const configureRoutes = require('../config/routes.js');
 
 const server = express();
 
+const corsConfig = {
+  credentials: true,
+  origin: true,
+};
+
 server.use(helmet());
-server.use(cors());
+server.use(cors(corsConfig));
 server.use(express.json());
 
 configureRoutes(server);
